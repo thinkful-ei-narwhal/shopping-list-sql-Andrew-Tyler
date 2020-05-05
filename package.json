@@ -1,11 +1,11 @@
 {
-  "name": "express-boilerplate",
+  "name": "shopping-list-sql-Andrew-Tyler",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require test/setup.js",
-    "start": "node src/practice.js"
+    "start": "node src/drills.js"
   },
   "keywords": [],
   "author": "",

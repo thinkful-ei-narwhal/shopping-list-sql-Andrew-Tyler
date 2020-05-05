@@ -31,3 +31,35 @@ function paginate(pageNumber) {
 
 searchItem("burger");
 paginate(3);
+
+
+function productsAddedDaysAgo(daysAgo) {
+  knexInstance
+    .select('id', 'name', 'price', 'date_added', 'checked', 'category')
+    .from('shopping_list')
+    .where(
+      'date_added',
+      '>',
+      knexInstance.raw(`now() - '?? days'::INTERVAL`, daysAgo)
+    )
+    .then(results => {
+      console.log(results);
+    });
+}
+
+productsAddedDaysAgo(21);
+
+function costPerCategory() {
+  knexInstance
+    .select('category')
+    .sum('price')
+    .from('shopping_list')
+    .groupBy('category')
+    .then(result => {
+      console.log(result);
+      
+    });
+
+}
+
+costPerCategory();
